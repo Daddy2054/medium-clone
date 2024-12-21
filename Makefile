@@ -1,4 +1,5 @@
 build:
+	export DOCKER_DEFAULT_PLATFORM=linux/amd64
 	docker compose -f local.yml up --build -d --remove-orphans
 
 up:
@@ -13,11 +14,11 @@ show-logs:
 show-logs-api:
 	docker compose -f local.yml logs api
 
-makemigrations:
-	docker compose -f local.yml run --rm api python manage.py makemigrations
-
-migrate:
-	docker compose -f local.yml run --rm api python manage.py migrate
+# makemigrations: # useless: migrations dont show up in docker, do it locally then rebuild
+# 	docker compose -f local.yml run --rm api python manage.py makemigrations
+# 	docker compose -f local.yml run --rm api python manage.py migrate
+# migrate:
+# 	docker compose -f local.yml run --rm api python manage.py migrate
 
 collectstatic:
 	docker compose -f local.yml run --rm api python manage.py collectstatic --no-input --clear

@@ -18,7 +18,7 @@ services:
     command: /start
     networks:
       - authors-api
-  
+
   postgres:
     build:
       context: .
@@ -32,7 +32,7 @@ services:
       - ./.envs/.local/.postgres
     networks:
       - authors-api
-  
+
   mailhog:
     image: mailhog/mailhog:v1.0.0
     container_name: mailhog
@@ -40,7 +40,7 @@ services:
       - "8025:8025"
     networks:
       - authors-api
-  
+
 networks:
   authors-api:
     driver: bridge
@@ -48,9 +48,8 @@ networks:
 volumes:
   local_postgres_data: {}
   local_postgres_data_backups: {}
-  static_volume: {}
-  media_volume: {}
-
+  static_volume:
+  media_volume: 
 # docker compose -f local.yml config
 # export DOCKER_DEFAULT_PLATFORM=linux/amd64
 # docker compose -f local.yml up --build -d --remove-orphans

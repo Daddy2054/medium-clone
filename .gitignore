@@ -178,3 +178,6 @@ pyrightconfig.json
 
 
 .vscode/*
+.DS_Store
+mydatabase
+mydatabase
