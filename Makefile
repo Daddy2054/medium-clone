@@ -14,11 +14,11 @@ show-logs:
 show-logs-api:
 	docker compose -f local.yml logs api
 
-# makemigrations: # useless: migrations dont show up in docker, do it locally then rebuild
-# 	docker compose -f local.yml run --rm api python manage.py makemigrations
-# 	docker compose -f local.yml run --rm api python manage.py migrate
-# migrate:
-# 	docker compose -f local.yml run --rm api python manage.py migrate
+makemigrations:
+	docker compose -f local.yml run --rm api python manage.py makemigrations
+
+migrate:
+	docker compose -f local.yml run --rm api python manage.py migrate
 
 collectstatic:
 	docker compose -f local.yml run --rm api python manage.py collectstatic --no-input --clear
