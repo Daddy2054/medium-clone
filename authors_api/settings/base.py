@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+
 from datetime import timedelta
 from pathlib import Path
 import environ
@@ -171,9 +172,11 @@ CELERY_TASK_SEND_SENT_EVENT = True
 if USE_TZ:
     CELERY_TIMEZONE = TIME_ZONE
 
+
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "dj_rest_auth.jwt_auth.JWTCookieAuthentication",
+      #  "dj_rest_auth.jwt_auth.JWTCookieAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
