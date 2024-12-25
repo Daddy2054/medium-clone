@@ -55,3 +55,6 @@ isort-diff:
 
 isort:
 	docker compose -f local.yml exec api isort . --skip venv --skip migrations
+
+token:
+	python -c "import secrets; print(secrets.token_urlsafe(38))"

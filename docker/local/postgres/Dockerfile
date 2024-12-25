@@ -1,4 +1,5 @@
-FROM postgres:15-bullseye
+##FROM postgres:15-bullseye
+FROM postgres:15-alpine
 
 COPY ./docker/local/postgres/maintenance /usr/local/bin/maintenance
 RUN chmod +x /usr/local/bin/maintenance/*
